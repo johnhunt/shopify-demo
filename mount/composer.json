@@ -1,4 +1,8 @@
 {
+    "autoload": {
+        "psr-0": {},
+        "psr-4": { "": "src/" }
+    },
     "require": {
         "caseyamcl/configula": "^2.4",
         "slim/slim": "^3.7",
