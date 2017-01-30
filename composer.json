@@ -1,0 +1,8 @@
+{
+    "require": {
+        "caseyamcl/configula": "^2.4",
+        "slim/slim": "^3.7",
+        "smarty/smarty": "^3.1",
+        "vlucas/valitron": "^1.3"
+    }
+}
