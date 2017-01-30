@@ -1,3 +1,11 @@
+## Welcome!
+
+If you want this to run locally you'll need to create a local config file in config/config.local.php with the correct
+ API settings. You'll also need to use docker-compose up to create the docker containers required (nginx/php-fpm). On
+  top of that you'll want to run: composer install in the mount/ directory to ensure all the dependencies are there.
+
+See below for more info on docker:
+
 The Docker setup for PHP applications using PHP7-FPM and Nginx described in http://geekyplatypus.com/dockerise-your-php-application-with-nginx-and-php7-fpm
 
 ## Instructions
