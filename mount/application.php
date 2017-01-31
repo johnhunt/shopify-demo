@@ -24,6 +24,22 @@ $imageEndpoint = '/admin/products/';
 // Session used for flash messages
 session_start();
 
+// Add dependencies to app to make them available from our controllers
+$container = new \Slim\Container(['settings' =>
+    [
+        'displayErrorDetails' => true
+    ],
+    'guzzle' => $guzzleClient,
+    'config' => $configObj,
+    'smarty' => $smarty,
+    'validator' => new Valitron\Validator([]),
+    'flash' => new \Slim\Flash\Messages(),
+    'productsRepo' => new \Repository\ShopifyProductsRepository($guzzleClient, $productsEndpoint, $imageEndpoint)
+    ]
+);
+
+$app = new Slim\App($container);
+
 // Add route callbacks
 $app->get('/shop-demo', 'Controllers\PagesController:index');
 
