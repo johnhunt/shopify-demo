@@ -21,6 +21,9 @@ $guzzleClient = new GuzzleHttp\Client([
 $productsEndpoint = '/admin/products.json';
 $imageEndpoint = '/admin/products/';
 
+// Session used for flash messages
+session_start();
+
 // Add route callbacks
 $app->get('/shop-demo', 'Controllers\PagesController:index');
 
