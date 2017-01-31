@@ -43,5 +43,9 @@ $app = new Slim\App($container);
 // Add route callbacks
 $app->get('/shop-demo', 'Controllers\PagesController:index');
 
+$app->post('/products', 'Controllers\ProductController:addProduct');
+
+$app->post('/imageUpload', 'Controllers\ProductController:storeProductImage');
+
 // Run application
 $app->run();
