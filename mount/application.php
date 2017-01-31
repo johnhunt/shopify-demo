@@ -6,12 +6,20 @@ $smarty = new Smarty();
 $smarty->addTemplateDir(__DIR__ . '/templates');
 $smarty->setCompileDir(__DIR__ . '/templates-compiled');
 
-// Add dependencies to app
-$app = new Slim\App([
-    'guzzle' => new GuzzleHttp\Client(),
-    'config' => new Configula\Config(__DIR__ . '/config/'),
-    'smarty' => $smarty
+// Get the app configuartion
+$configObj = new Configula\Config(__DIR__ . '/config/');
+
+// Create a guzzle HTTP object
+$guzzleClient = new GuzzleHttp\Client([
+    'base_uri' => $configObj->getItem('shopifyUrl'),
+    'auth' => [
+        $configObj->getItem('apiKey'),
+        $configObj->getItem('apiPassword')
+    ]
 ]);
+
+$productsEndpoint = '/admin/products.json';
+$imageEndpoint = '/admin/products/';
 
 // Add route callbacks
 $app->get('/shop-demo', 'Controllers\PagesController:index');
