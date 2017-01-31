@@ -1,5 +1,4 @@
 {include file="header.tpl"}
-{debug}
 {if $messages.success.0}
     <div class="alert alert-success" role="alert">{$messages.success.0}</div>
 {/if}
