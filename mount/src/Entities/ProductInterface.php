@@ -11,5 +11,8 @@ interface ProductInterface
 
     public function productType();
 
-    public function variants();
+    public function sku();
+
+    public function price();
+
 }
